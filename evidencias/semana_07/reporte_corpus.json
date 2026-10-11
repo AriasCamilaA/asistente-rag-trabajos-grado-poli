@@ -1,0 +1,23 @@
+{
+  "documents": [
+    {
+      "document_id": "poli_virtual",
+      "chunks": 4,
+      "status": "procesado"
+    },
+    {
+      "document_id": "poli_estudiantil_v8",
+      "chunks": 6,
+      "status": "procesado"
+    },
+    {
+      "document_id": "etic_formato",
+      "chunks": 9,
+      "status": "procesado"
+    }
+  ],
+  "chunks": 19,
+  "max_words": 180,
+  "overlap_words": 30,
+  "corpus_sha256": "1b65d0c53ce1966c3475c72c05c7bde4d1080f301d37b2e2d3ef4f4dc43dc051"
+}
