@@ -1,0 +1,66 @@
+[
+  {
+    "id": "poli_virtual",
+    "title": "Opciones de grado Ingeniería de Software modalidad virtual",
+    "url": "https://www.poli.edu.co/opcion-de-grado/modalidad-virtual",
+    "format": "html",
+    "scope": "Ingeniería de Software virtual",
+    "include": true,
+    "status": "Página oficial consultada; sin fecha de actualización explícita",
+    "selector": "software",
+    "local_path": "data/raw/poli_virtual.html",
+    "sha256": "2f54cb79ed5201d150d6e87c7f526d91873ba1290598cc0d345879b58b0af700",
+    "bytes": 164374,
+    "retrieved_at": "2026-10-11T19:18:33.363589+00:00"
+  },
+  {
+    "id": "poli_reglamento_opciones",
+    "title": "Reglamento de opciones de grado",
+    "url": "https://comunicaciones.poligran.edu.co/documentacion/reglamento-de-opciones-de-grado.pdf",
+    "format": "pdf",
+    "scope": "Institucional",
+    "include": false,
+    "status": "Excluido temporalmente: PDF escaneado requiere OCR y verificación; conserva enlace oficial",
+    "retrieved_at": "2026-10-11T19:18:33.363589+00:00"
+  },
+  {
+    "id": "poli_estudiantil_v8",
+    "title": "Reglamento Estudiantil versión 8 aprobado noviembre 2025",
+    "url": "https://www.poli.edu.co/sites/default/files/2026-03/reglamento-estudiantil-poli-v8.pdf",
+    "format": "pdf",
+    "scope": "Institucional",
+    "include": true,
+    "status": "Versión 8 aprobada 26 noviembre 2025; publicada marzo 2026",
+    "pages": [
+      21,
+      22,
+      42
+    ],
+    "local_path": "data/raw/poli_estudiantil_v8.pdf",
+    "sha256": "eee84a96d08e9a035b296f77a4b0bfe1e684bf575ecd340c4be237c138483d39",
+    "bytes": 701545,
+    "retrieved_at": "2026-10-11T19:18:33.993906+00:00"
+  },
+  {
+    "id": "poli_entrega_historica",
+    "title": "Requisitos entrega de trabajos de grado",
+    "url": "https://www.poli.edu.co/content/requisitos-entrega-de-los-trabajos-de-grado",
+    "format": "html",
+    "scope": "Biblioteca",
+    "include": false,
+    "status": "Excluida de inferencia: menciona CD-ROM y no permite confirmar actualidad",
+    "retrieved_at": "2026-10-11T19:18:33.993906+00:00"
+  },
+  {
+    "id": "etic_formato",
+    "title": "Formato Trabajo de grado ETIC 2026-1",
+    "format": "docx",
+    "scope": "Ingeniería de Software ETIC",
+    "include": true,
+    "local_path": "data/raw/formato_etic.docx",
+    "status": "Copia suministrada por estudiante; uso local; semestre en nombre 2026-1",
+    "sha256": "2e47859e5cf305b3ed56810af02757a0a846f66a0a9438c4bfd252c3034d3cb1",
+    "bytes": 93557,
+    "retrieved_at": "2026-10-11T19:18:34.038343+00:00"
+  }
+]
