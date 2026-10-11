@@ -1,0 +1,8 @@
+{
+  "collection": "poli_etic_v1",
+  "chunks": 19,
+  "embedding_model": "embeddinggemma:latest",
+  "dimension": 768,
+  "metric": "cosine",
+  "seconds": 43.13
+}
