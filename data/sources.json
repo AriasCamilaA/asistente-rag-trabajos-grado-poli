@@ -1,0 +1,53 @@
+[
+  {
+    "id": "poli_virtual",
+    "title": "Opciones de grado Ingeniería de Software modalidad virtual",
+    "url": "https://www.poli.edu.co/opcion-de-grado/modalidad-virtual",
+    "format": "html",
+    "scope": "Ingeniería de Software virtual",
+    "include": true,
+    "status": "Página oficial consultada; sin fecha de actualización explícita",
+    "selector": "software"
+  },
+  {
+    "id": "poli_reglamento_opciones",
+    "title": "Reglamento de opciones de grado",
+    "url": "https://comunicaciones.poligran.edu.co/documentacion/reglamento-de-opciones-de-grado.pdf",
+    "format": "pdf",
+    "scope": "Institucional",
+    "include": false,
+    "status": "Excluido temporalmente: PDF escaneado requiere OCR y verificación; conserva enlace oficial"
+  },
+  {
+    "id": "poli_estudiantil_v8",
+    "title": "Reglamento Estudiantil versión 8 aprobado noviembre 2025",
+    "url": "https://www.poli.edu.co/sites/default/files/2026-03/reglamento-estudiantil-poli-v8.pdf",
+    "format": "pdf",
+    "scope": "Institucional",
+    "include": true,
+    "status": "Versión 8 aprobada 26 noviembre 2025; publicada marzo 2026",
+    "pages": [
+      21,
+      22,
+      42
+    ]
+  },
+  {
+    "id": "poli_entrega_historica",
+    "title": "Requisitos entrega de trabajos de grado",
+    "url": "https://www.poli.edu.co/content/requisitos-entrega-de-los-trabajos-de-grado",
+    "format": "html",
+    "scope": "Biblioteca",
+    "include": false,
+    "status": "Excluida de inferencia: menciona CD-ROM y no permite confirmar actualidad"
+  },
+  {
+    "id": "etic_formato",
+    "title": "Formato Trabajo de grado ETIC 2026-1",
+    "format": "docx",
+    "scope": "Ingeniería de Software ETIC",
+    "include": true,
+    "local_path": "data/raw/formato_etic.docx",
+    "status": "Copia suministrada por estudiante; uso local; semestre en nombre 2026-1"
+  }
+]
