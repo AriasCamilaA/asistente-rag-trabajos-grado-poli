@@ -42,7 +42,7 @@ def fetch():
         if source.get('url') and source['include']:
             response = requests.get(source['url'], timeout=90)
             response.raise_for_status()
-            path = ROOT/'data/raw'/f"{source['id']}.{source['format']}"
+            path = ROOT/source.get('local_path',f"data/raw/{source['id']}.{source['format']}")
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_bytes(response.content)
             source['local_path'] = str(path.relative_to(ROOT)).replace('\\','/')
@@ -120,7 +120,7 @@ def prepare():
                 if len(text_chunk.split()) < 12:
                     continue
                 identifier = hashlib.sha256(f"{source['id']}:{page}:{section}:{n}:{text_chunk}".encode()).hexdigest()[:24]
-                metadata = {'document_id':source['id'], 'title':source['title'], 'source':source.get('url','Formato suministrado por la estudiante'), 'page':page, 'section':section, 'scope':source['scope'], 'version':source.get('sha256','')[:12]}
+                metadata = {'document_id':source['id'], 'title':source['title'], 'source':source.get('source_url',source.get('url','Formato suministrado por la estudiante')), 'page':page, 'section':section, 'scope':source['scope'], 'version':source.get('sha256','')[:12]}
                 metadata.update(program=section.split(' :: ')[0] if source.get('selector')=='programas' else source.get('program','todos'), modality=source.get('modality','todas'), template=source.get('template','ninguno'))
                 corpus.append({'id':identifier,'text':text_chunk,'metadata':metadata})
         report.append({'document_id':source['id'],'chunks':len(corpus)-before,'status':'procesado' if len(corpus)>before else 'pendiente OCR: sin texto extraíble'})
