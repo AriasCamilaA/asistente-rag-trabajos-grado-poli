@@ -72,6 +72,12 @@ El piloto requiere el índice y Ollama preparados. Escribe resultados nuevos en 
 
 ## Qué contiene GitHub y qué debe prepararse localmente
 
+### Aclaración sobre las fuentes documentales
+
+No se agregan al repositorio público los archivos completos de las fuentes institucionales, el formato ETIC, los fragmentos procesados ni el índice vectorial. Se publican las URLs y la configuración de las fuentes, el código de procesamiento y los inventarios con hashes y evidencias. Esta decisión separa los materiales institucionales del código del proyecto y evita redistribuir documentos sin una autorización verificada.
+
+Las fuentes activas con URL se obtienen mediante `fetch`; el formato ETIC original debe aportarse manualmente como copia autorizada, sin datos personales. Después se ejecutan `prepare` e `index` para construir la base local. Una vez preparada, las consultas reutilizan ese índice. Clonar GitHub no descarga una base precargada ni un modelo entrenado con esos documentos: el sistema aplica RAG sobre modelos preentrenados, sin modificar sus pesos.
+
 **Clonar el repositorio no entrega una base precargada.** GitHub contiene código, instrucciones, el inventario de URLs/configuración y evidencias de las pruebas. No incluye los modelos de Ollama, los documentos completos, el corpus procesado ni la base ChromaDB. Las respuestas piloto publicadas son evidencias, no una base utilizada para contestar nuevas preguntas.
 
 **Este proyecto no entrena Qwen3 con las fuentes.** Qwen3 y EmbeddingGemma se descargan ya preentrenados. La indexación transforma los fragmentos en vectores para recuperar información; en cada consulta, los fragmentos pertinentes se entregan como contexto a Qwen3. Sus pesos no se modifican. El conocimiento institucional utilizado reside en los documentos y el índice local.
