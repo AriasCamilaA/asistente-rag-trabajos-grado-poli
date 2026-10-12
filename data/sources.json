@@ -49,8 +49,10 @@
     "scope": "Formato ETIC suministrado; aplicable solo cuando el programa lo exija",
     "include": true,
     "local_path": "data/raw/formato_etic.docx",
-    "status": "Copia suministrada por estudiante; uso local; semestre en nombre 2026-1",
-    "template": "ETIC"
+    "status": "Copia pública del formato original compartida por la autora; descarga sin sesión verificada",
+    "template": "ETIC",
+    "url": "https://drive.google.com/uc?export=download&id=1PnpQyZdOVSMS7cpWTau-sb3gmgzIZGGq",
+    "source_url": "https://docs.google.com/document/d/1PnpQyZdOVSMS7cpWTau-sb3gmgzIZGGq/edit"
   },
   {
     "id": "poli_opciones_general",
