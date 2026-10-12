@@ -4,5 +4,5 @@
   "embedding_model": "embeddinggemma:latest",
   "dimension": 768,
   "metric": "cosine",
-  "seconds": 9.353
+  "seconds": 6.587
 }
