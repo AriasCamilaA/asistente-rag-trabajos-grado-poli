@@ -10,7 +10,7 @@ El anteproyecto propone 14 requerimientos funcionales y 8 no funcionales. Esta e
 | RF09 Ausencia de evidencia | Mensaje explícito cuando no hay evidencia o las referencias son inválidas | Control y prueba piloto |
 | RF12 Evidencia técnica | Reportes JSON reproducibles con latencia y configuración | Implementado para piloto |
 | RF13 Actualizar corpus | Descarga, preparación y reconstrucción explícita del índice | Administración por comandos |
-| RF14 Evaluación | Ejecutar piloto con preguntas positivas, negativas y adversarial | Piloto de 12 casos |
+| RF14 Evaluación | Ejecutar piloto con preguntas positivas, negativas y adversarial | Piloto ampliado de 18 casos |
 | RF01-RF03 RF07 RF10 RF11 | Acceso web, conversación, historial y nuevas preguntas | Semanas 10-12 |
 | RNF02 Trazabilidad | Documento, URL, sección/página, versión | Metadatos por fragmento |
 | RNF04 Seguridad | Sin claves ni información de estudiantes en corpus público | Revisión de archivos publicados |
@@ -21,3 +21,9 @@ El anteproyecto propone 14 requerimientos funcionales y 8 no funcionales. Esta e
 | RNF08 | Abstención ante falta de evidencia | Control inicial; requiere evaluación amplia |
 
 La meta final de al menos 80 % de respuestas correctas y sustentadas se evaluará en semanas 13-14 con 50-80 preguntas. La recuperación de un documento no prueba que todos los hechos de una respuesta estén sustentados. La validez de una referencia tampoco prueba por sí sola exactitud semántica.
+
+
+Actualización de alcance: el público objetivo son todos los pregrados y modalidades del Politécnico Grancolombiano. La cobertura documental específica depende del programa. El corpus distingue programa, modalidad y plantilla; ETIC no es universal. Las evidencias anteriores de semanas 6–9 corresponden al piloto histórico restringido. La nueva ejecución se registra en evidencias/alcance_pregrados. Para consultar un programa puede usarse --programa y --modalidad. La cobertura específica presencial requiere fuentes propias; el chatbot se abstiene ante requisitos no documentados.
+
+
+RF de contextualización: solicitar programa y modalidad cuando sean necesarios; filtrar recuperación por aplicabilidad; no generalizar ETIC a todos los pregrados. Evaluación final distribuida entre programas, modalidades y cohortes.
