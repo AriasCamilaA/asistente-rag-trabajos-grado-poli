@@ -1,13 +1,14 @@
 [
   {
     "id": "poli_virtual",
-    "title": "Opciones de grado Ingeniería de Software modalidad virtual",
+    "title": "Opciones de grado por programa modalidad virtual",
     "url": "https://www.poli.edu.co/opcion-de-grado/modalidad-virtual",
     "format": "html",
-    "scope": "Ingeniería de Software virtual",
+    "scope": "Pregrados: condiciones por programa virtual",
     "include": true,
     "status": "Página oficial consultada; sin fecha de actualización explícita",
-    "selector": "software"
+    "selector": "programas",
+    "modality": "virtual"
   },
   {
     "id": "poli_reglamento_opciones",
@@ -45,9 +46,19 @@
     "id": "etic_formato",
     "title": "Formato Trabajo de grado ETIC 2026-1",
     "format": "docx",
-    "scope": "Ingeniería de Software ETIC",
+    "scope": "Formato ETIC suministrado; aplicable solo cuando el programa lo exija",
     "include": true,
     "local_path": "data/raw/formato_etic.docx",
-    "status": "Copia suministrada por estudiante; uso local; semestre en nombre 2026-1"
+    "status": "Copia suministrada por estudiante; uso local; semestre en nombre 2026-1",
+    "template": "ETIC"
+  },
+  {
+    "id": "poli_opciones_general",
+    "title": "Opciones de grado: información institucional",
+    "url": "https://www.poli.edu.co/opcion-de-grado",
+    "format": "html",
+    "scope": "Pregrados profesionales; condiciones según opción y programa",
+    "include": true,
+    "status": "Página oficial consultada; validar programa, cohorte y modalidad"
   }
 ]
