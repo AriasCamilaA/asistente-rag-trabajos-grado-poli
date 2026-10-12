@@ -2,31 +2,89 @@
 
 Prototipo académico de Camila Alexandra Arias Ruiz para los estudiantes de todos los pregrados y modalidades del Politécnico Grancolombiano. Implementa el avance técnico hasta la semana 9 del anteproyecto: fuentes, corpus, embeddings, recuperación y generación local. No representa un servicio oficial de la institución.
 
-## Ejecución en Windows
+## Instalación y primera ejecución en Windows
 
-Requiere Python 3.12, Git y Ollama con `qwen3:4b` y `embeddinggemma`. El desarrollo se verificó con el runtime Python 3.12 incluido en Codex, sin instalar Python globalmente. Para ejecutarlo fuera de Codex puede instalarse Python 3.12 desde python.org.
+### 1. Instalar Python, Git y Ollama
+
+1. Instalar [Python 3.12](https://www.python.org/downloads/) y [Git para Windows](https://git-scm.com/download/win).
+2. Descargar Ollama desde su [página oficial para Windows](https://ollama.com/download/windows), elegir la descarga manual y ejecutar `OllamaSetup.exe`.
+3. Abrir Ollama desde el menú Inicio. La aplicación ejecuta el servicio en segundo plano. Cerrar y volver a abrir PowerShell después de instalarlo para que reconozca el comando.
+4. Comprobar la instalación y descargar los dos modelos del proyecto:
+
+```powershell
+ollama --version
+ollama pull qwen3:4b
+ollama pull embeddinggemma
+ollama list
+```
+
+La descarga de modelos necesita internet y espacio disponible. El proyecto usa modelos locales; no requiere iniciar sesión en Ollama ni contratar una API de IA. Mantener el servicio abierto mientras se prepara el índice o se consulta el chatbot. Si no se inicia desde la aplicación, ejecutar `ollama serve` en otra terminal y dejarla abierta.
+
+Referencia de instalación y servicio: [documentación oficial de Ollama para Windows](https://docs.ollama.com/windows). El código se conecta a `http://127.0.0.1:11434`.
+
+### 2. Clonar el repositorio e instalar sus dependencias
 
 ```powershell
 git clone https://github.com/AriasCamilaA/asistente-rag-trabajos-grado-poli.git
 cd asistente-rag-trabajos-grado-poli
 py -3.12 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
-ollama pull qwen3:4b
-ollama pull embeddinggemma
 ```
 
-Colocar una copia autorizada del formato ETIC original en `data/raw/formato_etic.docx`. El formato no se publica en este repositorio. Mantener Ollama abierto, luego:
+El desarrollo se verificó con el Python 3.12 incluido en Codex. Estos pasos permiten ejecutar el proyecto independientemente de Codex. Ollama se instala por separado: `pip install -r requirements.txt` no instala Ollama ni descarga sus modelos.
+
+### 3. Preparar las fuentes y construir el índice una vez
+
+Colocar una copia autorizada del **formato ETIC original**, sin datos personales ni el informe de la estudiante, en `data/raw/formato_etic.docx`. Esta fuente no se incluye en GitHub. Se necesita porque está activada en `data/sources.json`; sin ella, `fetch` informa que falta el archivo. Las fuentes institucionales con URL se descargan automáticamente.
 
 ```powershell
 .\.venv\Scripts\python.exe -m src.rag fetch
 .\.venv\Scripts\python.exe -m src.rag prepare
 .\.venv\Scripts\python.exe -m src.rag index
+```
+
+| Comando | Función | Resultado local |
+|---|---|---|
+| `fetch` | Descargar las fuentes activas con URL y registrar procedencia y hashes | `data/raw/` y `evidencias/alcance_pregrados/inventario.json` |
+| `prepare` | Extraer texto y dividirlo conservando sección, página, programa y modalidad | `data/processed/chunks.json` |
+| `index` | Calcular embeddings y reconstruir la colección `poli_pregrados_v2` | `data/chroma/` |
+| `ask` | Consultar el índice existente y generar una respuesta con fuentes | JSON en la terminal |
+
+### 4. Consultar después de la preparación inicial
+
+```powershell
+.\.venv\Scripts\python.exe -m src.rag ask "¿Qué prerrequisitos exige el trabajo de grado?" --programa "Ingeniería Industrial" --modalidad virtual
 .\.venv\Scripts\python.exe -m src.rag ask "¿Cuál es la extensión máxima del resumen ETIC?"
+```
+
+En ejecuciones posteriores basta con mantener Ollama disponible y ejecutar `ask`, siempre que continúen presentes los modelos y `data/chroma/`. No se necesita descargar las fuentes ni reconstruir el índice para cada pregunta. La consulta utiliza el contenido de la última indexación, aunque una página institucional haya cambiado después.
+
+Cuando se actualicen las fuentes, repetir `fetch`, `prepare` e `index` y revisar las respuestas. Si solo cambia la extracción o segmentación, repetir `prepare` e `index`. Si cambia el modelo de embeddings, reconstruir el índice. El comando `index` reconstruye la colección; no conserva una mezcla de versiones anteriores.
+
+### 5. Ejecutar las comprobaciones
+
+```powershell
 .\.venv\Scripts\python.exe -m pytest tests -q
 .\.venv\Scripts\python.exe -m evaluacion.run_pilot
 ```
 
-`fetch` descarga fuentes y registra hashes; `prepare` conserva página/sección; `index` reconstruye la colección ChromaDB; `ask` devuelve JSON con respuesta, fuentes y tiempo. Las consultas no se envían a servicios comerciales de IA. Las descargas sí necesitan internet.
+El piloto requiere el índice y Ollama preparados. Escribe resultados nuevos en `evidencias/alcance_pregrados/`. Las consultas del proyecto se procesan localmente; la instalación, la descarga de modelos y la descarga de fuentes sí necesitan internet.
+
+## Qué contiene GitHub y qué debe prepararse localmente
+
+**Clonar el repositorio no entrega una base precargada.** GitHub contiene código, instrucciones, el inventario de URLs/configuración y evidencias de las pruebas. No incluye los modelos de Ollama, los documentos completos, el corpus procesado ni la base ChromaDB. Las respuestas piloto publicadas son evidencias, no una base utilizada para contestar nuevas preguntas.
+
+**Este proyecto no entrena Qwen3 con las fuentes.** Qwen3 y EmbeddingGemma se descargan ya preentrenados. La indexación transforma los fragmentos en vectores para recuperar información; en cada consulta, los fragmentos pertinentes se entregan como contexto a Qwen3. Sus pesos no se modifican. El conocimiento institucional utilizado reside en los documentos y el índice local.
+
+| Elemento | ¿Se publica en GitHub? | ¿Cómo se obtiene? |
+|---|---|---|
+| Código, prompt y configuración de fuentes | Sí | Clonar el repositorio |
+| Inventarios, hashes y resultados del piloto | Sí | Clonar; representan la ejecución registrada |
+| Documentos institucionales completos | No | `fetch` descarga las URLs activas; ETIC debe proporcionarse como copia autorizada |
+| Fragmentos y vectores | No | `prepare` e `index` |
+| Modelos de lenguaje y embeddings | No | `ollama pull` |
+
+La opción actual es mantener enlaces oficiales y un proceso de reconstrucción. Si se decide distribuir una versión precargada como entrega adicional, primero verificar autorización de redistribución de cada fuente y excluir documentos con datos personales. Ese paquete tendría que incluir corpus e índice compatibles, indicar versiones y explicar su actualización; no sería un modelo entrenado nuevo. El ZIP local del proyecto constituye un respaldo de la ejecución en el equipo de desarrollo y no forma parte de lo que descarga un clon de GitHub.
 
 ## Evidencias por semana
 
