@@ -1,0 +1,11 @@
+{
+  "executed_at": "2026-10-11T23:59:45.499089+00:00",
+  "n": 18,
+  "answerable": 11,
+  "unanswerable": 7,
+  "hit_at_4": 1.0,
+  "abstention_unanswerable": 1.0,
+  "source_presence_answerable": 1.0,
+  "mean_seconds": 1.5519444444444443,
+  "note": "Prueba piloto técnica, no evaluación final de 50-80 preguntas; coincidencia lexical no demuestra exactitud ni fundamentación."
+}

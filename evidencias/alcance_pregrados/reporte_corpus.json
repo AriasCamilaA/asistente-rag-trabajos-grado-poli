@@ -1,0 +1,43 @@
+{
+  "documents": [
+    {
+      "document_id": "poli_virtual",
+      "chunks": 115,
+      "status": "procesado"
+    },
+    {
+      "document_id": "poli_estudiantil_v8",
+      "chunks": 6,
+      "status": "procesado"
+    },
+    {
+      "document_id": "etic_formato",
+      "chunks": 9,
+      "status": "procesado"
+    },
+    {
+      "document_id": "poli_opciones_general",
+      "chunks": 9,
+      "status": "procesado"
+    }
+  ],
+  "chunks": 139,
+  "max_words": 180,
+  "overlap_words": 30,
+  "programs": [
+    "Administración Pública",
+    "Contaduría Pública",
+    "Economía",
+    "Gestión de la Seguridad y la Salud Laboral",
+    "Ingeniería Industrial",
+    "Ingeniería de Software",
+    "Lic. Educación Primera Infancia / Lic. Educación Infantil",
+    "Licenciatura en Ciencias Sociales",
+    "Licenciatura en Educación Básica Primaria",
+    "Mercadeo y Publicidad",
+    "Negocios Internacionales",
+    "Periodismo / Comunicación Social",
+    "Psicología"
+  ],
+  "corpus_sha256": "2cfbefc08c403dbefc1e64f994ec168b31512660f4e7db1d970ab4378f104c91"
+}
