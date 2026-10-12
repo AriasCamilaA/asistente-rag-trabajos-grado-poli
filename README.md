@@ -31,11 +31,11 @@ py -3.12 -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 ```
 
-El desarrollo se verificó con el Python 3.12 incluido en Codex. Estos pasos permiten ejecutar el proyecto independientemente de Codex. Ollama se instala por separado: `pip install -r requirements.txt` no instala Ollama ni descarga sus modelos.
+Ollama se instala por separado: `pip install -r requirements.txt` no instala Ollama ni descarga sus modelos.
 
 ### 3. Preparar las fuentes y construir el índice una vez
 
-Colocar una copia autorizada del **formato ETIC original**, sin datos personales ni el informe de la estudiante, en `data/raw/formato_etic.docx`. Esta fuente no se incluye en GitHub. Se necesita porque está activada en `data/sources.json`; sin ella, `fetch` informa que falta el archivo. Las fuentes institucionales con URL se descargan automáticamente.
+El comando `fetch` descarga las fuentes activas, incluido el [formato ETIC original disponible públicamente](https://docs.google.com/document/d/1PnpQyZdOVSMS7cpWTau-sb3gmgzIZGGq/edit). No es necesario cargarlo manualmente. La configuración registra su enlace de consulta y su enlace de descarga; el archivo se guarda en `data/raw/formato_etic.docx`.
 
 ```powershell
 .\.venv\Scripts\python.exe -m src.rag fetch
@@ -76,7 +76,7 @@ El piloto requiere el índice y Ollama preparados. Escribe resultados nuevos en 
 
 No se agregan al repositorio público los archivos completos de las fuentes institucionales, el formato ETIC, los fragmentos procesados ni el índice vectorial. Se publican las URLs y la configuración de las fuentes, el código de procesamiento y los inventarios con hashes y evidencias. Esta decisión separa los materiales institucionales del código del proyecto y evita redistribuir documentos sin una autorización verificada.
 
-Las fuentes activas con URL se obtienen mediante `fetch`; el formato ETIC original debe aportarse manualmente como copia autorizada, sin datos personales. Después se ejecutan `prepare` e `index` para construir la base local. Una vez preparada, las consultas reutilizan ese índice. Clonar GitHub no descarga una base precargada ni un modelo entrenado con esos documentos: el sistema aplica RAG sobre modelos preentrenados, sin modificar sus pesos.
+Las fuentes activas con URL, incluido el [formato ETIC público](https://docs.google.com/document/d/1PnpQyZdOVSMS7cpWTau-sb3gmgzIZGGq/edit), se obtienen automáticamente mediante `fetch`, sin iniciar sesión. No se publican copias completas de esos documentos en GitHub. Después se ejecutan `prepare` e `index` para construir la base local. Una vez preparada, las consultas reutilizan ese índice. Clonar GitHub no descarga una base precargada ni un modelo entrenado con esos documentos: el sistema aplica RAG sobre modelos preentrenados, sin modificar sus pesos.
 
 **Clonar el repositorio no entrega una base precargada.** GitHub contiene código, instrucciones, el inventario de URLs/configuración y evidencias de las pruebas. No incluye los modelos de Ollama, los documentos completos, el corpus procesado ni la base ChromaDB. Las respuestas piloto publicadas son evidencias, no una base utilizada para contestar nuevas preguntas.
 
@@ -86,7 +86,7 @@ Las fuentes activas con URL se obtienen mediante `fetch`; el formato ETIC origin
 |---|---|---|
 | Código, prompt y configuración de fuentes | Sí | Clonar el repositorio |
 | Inventarios, hashes y resultados del piloto | Sí | Clonar; representan la ejecución registrada |
-| Documentos institucionales completos | No | `fetch` descarga las URLs activas; ETIC debe proporcionarse como copia autorizada |
+| Documentos institucionales completos | No | `fetch` descarga las URLs activas, incluido el formato ETIC público |
 | Fragmentos y vectores | No | `prepare` e `index` |
 | Modelos de lenguaje y embeddings | No | `ollama pull` |
 
