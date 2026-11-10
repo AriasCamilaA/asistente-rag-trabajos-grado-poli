@@ -33,6 +33,7 @@ def run():
     for name,body in [
         ('contexto_virtual',{'question':'¿Cuál es el prerrequisito del trabajo de grado?','program':'Ingeniería Industrial','modality':'virtual'}),
         ('contexto_presencial',{'question':'¿Cuál es el prerrequisito del trabajo de grado?','program':'Ingeniería Industrial','modality':'presencial'}),
+        ('contexto_etic',{'question':'¿Cuál es la extensión máxima del resumen ETIC?','program':'Ingeniería Industrial','modality':'virtual'}),
         ('pregunta_vacia',{'question':'   '}),
         ('consulta_larga',{'question':'x'*2001}),
         ('programa_invalido',{'question':'Requisito','program':'Programa inexistente'}),
