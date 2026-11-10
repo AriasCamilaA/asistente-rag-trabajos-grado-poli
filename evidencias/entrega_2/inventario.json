@@ -1,0 +1,83 @@
+[
+  {
+    "id": "poli_virtual",
+    "title": "Opciones de grado por programa modalidad virtual",
+    "url": "https://www.poli.edu.co/opcion-de-grado/modalidad-virtual",
+    "format": "html",
+    "scope": "Pregrados: condiciones por programa virtual",
+    "include": true,
+    "status": "Página oficial consultada; sin fecha de actualización explícita",
+    "selector": "programas",
+    "modality": "virtual",
+    "local_path": "data/raw/poli_virtual.html",
+    "sha256": "a21b1cfc7161e30b572bbc242a821759d8c434a1d528feb31310422be35b38be",
+    "bytes": 164830,
+    "retrieved_at": "2026-11-10T03:12:00.016554+00:00"
+  },
+  {
+    "id": "poli_reglamento_opciones",
+    "title": "Reglamento de opciones de grado",
+    "url": "https://comunicaciones.poligran.edu.co/documentacion/reglamento-de-opciones-de-grado.pdf",
+    "format": "pdf",
+    "scope": "Institucional",
+    "include": false,
+    "status": "Excluido temporalmente: PDF escaneado requiere OCR y verificación; conserva enlace oficial",
+    "retrieved_at": "2026-11-10T03:12:00.016554+00:00"
+  },
+  {
+    "id": "poli_estudiantil_v8",
+    "title": "Reglamento Estudiantil versión 8 aprobado noviembre 2025",
+    "url": "https://www.poli.edu.co/sites/default/files/2026-03/reglamento-estudiantil-poli-v8.pdf",
+    "format": "pdf",
+    "scope": "Institucional",
+    "include": true,
+    "status": "Versión 8 aprobada 26 noviembre 2025; publicada marzo 2026",
+    "pages": [
+      21,
+      22,
+      42
+    ],
+    "local_path": "data/raw/poli_estudiantil_v8.pdf",
+    "sha256": "eee84a96d08e9a035b296f77a4b0bfe1e684bf575ecd340c4be237c138483d39",
+    "bytes": 701545,
+    "retrieved_at": "2026-11-10T03:12:01.042215+00:00"
+  },
+  {
+    "id": "poli_entrega_historica",
+    "title": "Requisitos entrega de trabajos de grado",
+    "url": "https://www.poli.edu.co/content/requisitos-entrega-de-los-trabajos-de-grado",
+    "format": "html",
+    "scope": "Biblioteca",
+    "include": false,
+    "status": "Excluida de inferencia: menciona CD-ROM y no permite confirmar actualidad",
+    "retrieved_at": "2026-11-10T03:12:01.042215+00:00"
+  },
+  {
+    "id": "etic_formato",
+    "title": "Formato Trabajo de grado ETIC 2026-1",
+    "format": "docx",
+    "scope": "Formato ETIC suministrado; aplicable solo cuando el programa lo exija",
+    "include": true,
+    "local_path": "data/raw/formato_etic.docx",
+    "status": "Copia pública del formato original compartida por la autora; descarga sin sesión verificada",
+    "template": "ETIC",
+    "url": "https://drive.google.com/uc?export=download&id=1PnpQyZdOVSMS7cpWTau-sb3gmgzIZGGq",
+    "source_url": "https://docs.google.com/document/d/1PnpQyZdOVSMS7cpWTau-sb3gmgzIZGGq/edit",
+    "sha256": "2e47859e5cf305b3ed56810af02757a0a846f66a0a9438c4bfd252c3034d3cb1",
+    "bytes": 93557,
+    "retrieved_at": "2026-11-10T03:12:02.793170+00:00"
+  },
+  {
+    "id": "poli_opciones_general",
+    "title": "Opciones de grado: información institucional",
+    "url": "https://www.poli.edu.co/opcion-de-grado",
+    "format": "html",
+    "scope": "Pregrados profesionales; condiciones según opción y programa",
+    "include": true,
+    "status": "Página oficial consultada; validar programa, cohorte y modalidad",
+    "local_path": "data/raw/poli_opciones_general.html",
+    "sha256": "78d106599b732c2189f5c038cc4cd1ddc6df2003441dff6c10829bbbfa96dc53",
+    "bytes": 78033,
+    "retrieved_at": "2026-11-10T03:12:03.897736+00:00"
+  }
+]

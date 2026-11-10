@@ -1,0 +1,14 @@
+{
+  "executed_at": "2026-11-10T03:16:52.437265+00:00",
+  "n": 18,
+  "positive": 11,
+  "negative": 7,
+  "http_success": 18,
+  "positive_with_sources": 11,
+  "expected_document_cited": 11,
+  "negative_abstention": 7,
+  "mean_wall_seconds": 1.569,
+  "median_wall_seconds": 1.762,
+  "max_wall_seconds": 3.708,
+  "note": "Piloto técnico de 18 casos reutilizados; sin validación independiente ni generalización a todos los programas. Presencia de fuente no implica corrección semántica."
+}

@@ -1,0 +1,91 @@
+{
+  "/": {
+    "status": 200
+  },
+  "/api/v1/catalog": {
+    "status": 200
+  },
+  "/api/v1/health": {
+    "status": 200
+  },
+  "/openapi.json": {
+    "status": 200
+  },
+  "first_query": {
+    "wall_seconds": 0.808,
+    "result": {
+      "answer": "300 palabras",
+      "sources": [
+        {
+          "citation": "F1",
+          "document_id": "etic_formato",
+          "title": "Formato Trabajo de grado ETIC 2026-1",
+          "source": "https://docs.google.com/document/d/1PnpQyZdOVSMS7cpWTau-sb3gmgzIZGGq/edit",
+          "section": "RESUMEN",
+          "page": 0,
+          "scope": "Formato ETIC suministrado; aplicable solo cuando el programa lo exija",
+          "program": "todos",
+          "modality": "todas",
+          "version": "2e47859e5cf3",
+          "excerpt": "Este apartado debe estar diseñado para invitar al lector a continuar leyendo el docu-mento, de tal manera que se debe indicar: el propósito del trabajo, el método planteado para abordar el problema y los principales resultados, hallazgos y conclusiones. La exten-sión máxima es de 300 palabras."
+        }
+      ],
+      "insufficient": false,
+      "seconds": 0.783,
+      "model": "qwen3:4b"
+    },
+    "condition": "Primera consulta HTTP de esta ejecución; no se forzó descarga de modelos de memoria."
+  },
+  "contexto_virtual": {
+    "status": 200,
+    "body": {
+      "answer": "El prerrequisito del Trabajo de Grado es la aprobación de los siguientes módulos: a. Producción b. Gestión de Transporte y Distribución",
+      "sources": [
+        {
+          "citation": "F1",
+          "document_id": "poli_virtual",
+          "title": "Opciones de grado por programa modalidad virtual",
+          "source": "https://www.poli.edu.co/opcion-de-grado/modalidad-virtual",
+          "section": "Ingeniería Industrial :: Trabajo de Grado",
+          "page": 0,
+          "scope": "Pregrados: condiciones por programa virtual",
+          "program": "Ingeniería Industrial",
+          "modality": "virtual",
+          "version": "a21b1cfc7161",
+          "excerpt": "Trabajo de Grado El objetivo de esta opción es acercar al estudiante a la dinámica de la investigación académica y a la presentación de resultados. A tal efecto, es necesario llevar un proceso de investigación que comienza con el planteamiento de un problema , sigue con el desarrollo de una solución , y finaliza con una evaluación de la solución propuesta , contrastando la teoría con la práctica. Los estudiantes que seleccionen esta opción contarán con acompañamiento de un asesor metodológico y un temático. Para cursar Trabajo de grado como opción de grado, se debe contar con la aprobación del siguiente prerrequisito: a. Producción b. Gestión de Transporte y Distribución"
+        }
+      ],
+      "insufficient": false,
+      "seconds": 1.842,
+      "model": "qwen3:4b"
+    }
+  },
+  "contexto_presencial": {
+    "status": 200,
+    "body": {
+      "answer": "No dispongo de una fuente específica aplicable a ese programa y modalidad para confirmar ese requisito. Consulta a la coordinación de tu programa.",
+      "sources": [],
+      "insufficient": true,
+      "seconds": 0.076,
+      "model": "qwen3:4b"
+    }
+  },
+  "pregunta_vacia": {
+    "status": 422,
+    "body": {
+      "detail": "Revisa la consulta (1 a 2000 caracteres), el programa y la modalidad."
+    }
+  },
+  "consulta_larga": {
+    "status": 422,
+    "body": {
+      "detail": "Revisa la consulta (1 a 2000 caracteres), el programa y la modalidad."
+    }
+  },
+  "programa_invalido": {
+    "status": 422,
+    "body": {
+      "detail": "Selecciona un programa del catálogo; usa consulta general si no aparece."
+    }
+  }
+}

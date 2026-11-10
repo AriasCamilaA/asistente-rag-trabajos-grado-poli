@@ -1,0 +1,62 @@
+{
+  "python": "3.12.14",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "models": [
+    {
+      "name": "embeddinggemma:latest",
+      "model": "embeddinggemma:latest",
+      "modified_at": "2026-10-11T14:12:49.3755521-05:00",
+      "size": 621875917,
+      "digest": "85462619ee721b466c5927d109d4cb765861907d5417b9109caebc4e614679f1",
+      "details": {
+        "parent_model": "embeddinggemma:300m-bf16",
+        "format": "gguf",
+        "family": "gemma3",
+        "families": [
+          "gemma3"
+        ],
+        "parameter_size": "307.58M",
+        "quantization_level": "BF16",
+        "context_length": 2048,
+        "embedding_length": 768,
+        "runner": "ggml"
+      },
+      "capabilities": [
+        "embedding"
+      ]
+    },
+    {
+      "name": "qwen3:4b",
+      "model": "qwen3:4b",
+      "modified_at": "2026-10-11T14:12:31.6672533-05:00",
+      "size": 2497293931,
+      "digest": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+      "details": {
+        "parent_model": "",
+        "format": "gguf",
+        "family": "qwen3",
+        "families": [
+          "qwen3"
+        ],
+        "parameter_size": "4.0B",
+        "quantization_level": "Q4_K_M",
+        "context_length": 262144,
+        "embedding_length": 2560,
+        "runner": "ggml"
+      },
+      "capabilities": [
+        "completion",
+        "tools",
+        "thinking"
+      ]
+    }
+  ],
+  "executed_local_date": "2026-11-09",
+  "note": "Versiones y digests de la ejecución registrada; no certifican repetición bit a bit.",
+  "node": "v24.11.1",
+  "next": "15.5.29",
+  "react": "19.3.1",
+  "postcss_override": "8.5.32",
+  "fastapi": "0.162.2",
+  "uvicorn": "0.54.0"
+}
