@@ -87,5 +87,30 @@
     "body": {
       "detail": "Selecciona un programa del catálogo; usa consulta general si no aparece."
     }
+  },
+  "contexto_etic": {
+    "status": 200,
+    "body": {
+      "answer": "300 palabras",
+      "sources": [
+        {
+          "citation": "F1",
+          "document_id": "etic_formato",
+          "title": "Formato Trabajo de grado ETIC 2026-1",
+          "source": "https://docs.google.com/document/d/1PnpQyZdOVSMS7cpWTau-sb3gmgzIZGGq/edit",
+          "section": "RESUMEN",
+          "page": 0,
+          "scope": "Formato ETIC suministrado; aplicable solo cuando el programa lo exija",
+          "program": "todos",
+          "modality": "todas",
+          "version": "2e47859e5cf3",
+          "excerpt": "Este apartado debe estar diseñado para invitar al lector a continuar leyendo el docu-mento, de tal manera que se debe indicar: el propósito del trabajo, el método planteado para abordar el problema y los principales resultados, hallazgos y conclusiones. La exten-sión máxima es de 300 palabras."
+        }
+      ],
+      "insufficient": false,
+      "seconds": 11.136,
+      "model": "qwen3:4b"
+    },
+    "executed_at": "2026-11-10T04:34:05.260690+00:00"
   }
 }
