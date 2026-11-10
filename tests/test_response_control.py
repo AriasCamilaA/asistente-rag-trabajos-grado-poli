@@ -18,6 +18,10 @@ def test_valid_citation_is_mapped_to_document(monkeypatch):
     result=rag.ask('¿Extensión?')
     assert result['sources'][0]['document_id']=='formato'
     assert result['insufficient'] is False
+    # La consulta explícita de la plantilla no afirma su aplicabilidad al programa.
+    contextual=rag.ask('¿Extensión del resumen ETIC?',program='Ingeniería Industrial',modality='virtual')
+    assert contextual['insufficient'] is False
+    assert contextual['sources'][0]['document_id']=='formato'
 
 def test_unsupported_etic_version_is_rejected(monkeypatch):
     monkeypatch.setattr(rag,'retrieve',lambda *a,**k:HITS)
