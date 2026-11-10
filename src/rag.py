@@ -201,7 +201,7 @@ def ask(question, program=None, modality=None):
         clarification=NO_EVIDENCE
     elif 'prerrequisito' in question.casefold() and not resolved_program:
         clarification='Indica tu programa de pregrado y modalidad para consultar el prerrequisito aplicable.'
-    elif resolved_program and resolved_modality and not any(x['metadata'].get('program')==resolved_program and x['metadata'].get('modality')==resolved_modality for x in found):
+    elif resolved_program and resolved_modality and 'etic' not in question.casefold() and not any(x['metadata'].get('program')==resolved_program and x['metadata'].get('modality')==resolved_modality for x in found):
         clarification='No dispongo de una fuente específica aplicable a ese programa y modalidad para confirmar ese requisito. Consulta a la coordinación de tu programa.'
     elif 'etic' in question.casefold() and any(x in question.casefold() for x in ('todos los pregrados','todos los programas')):
         clarification='El formato ETIC suministrado tiene un ámbito particular; no permite establecer una obligación para todos los pregrados. Confirma el formato aplicable con tu programa.'
