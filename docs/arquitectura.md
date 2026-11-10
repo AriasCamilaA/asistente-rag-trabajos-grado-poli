@@ -1,23 +1,27 @@
-# Arquitectura hasta semana 9
+# Arquitectura del MVP
 
-```mermaid
-flowchart LR
- A[Fuentes oficiales y formato ETIC] --> B[Extracción por página o sección]
- B --> C[Limpieza y fragmentos con metadatos]
- C --> D[EmbeddingGemma local]
- D --> E[ChromaDB persistente]
- Q[Consulta por terminal] --> F[Embedding de consulta]
- F --> E
- E --> G[Cuatro fragmentos recuperados]
- G --> H[Prompt especializado]
- H --> I[Qwen3 4B mediante Ollama]
- I --> J[Validación JSON y referencias]
- J --> K[Respuesta con fuentes o abstención]
-```
+Navegador con React y Next.js → FastAPI en 127.0.0.1:8000 → núcleo RAG → ChromaDB local y Ollama en 127.0.0.1:11434.
 
-Se usa distancia coseno; el índice persiste localmente y se reconstruye cuando cambian las fuentes. Qwen3 se configura con temperatura 0, contexto de 4096 y `think=false`; aun así, no se garantiza determinismo entre versiones o hardware. Se conserva separación entre recuperación y generación. Ollama escucha en localhost y no se expone como servicio público.
+La exportación estática frontend/out se sirve desde FastAPI, después de declarar las rutas API. Los comandos fetch, prepare e index se ejecutan por terminal y no se exponen por HTTP. No se necesita CORS ni un puerto adicional para la demostración compilada.
 
-La API FastAPI, frontend React/Next.js, historial de sesión y despliegue quedan programados para semanas 10-12. El prototipo no consulta Smart Campus ni información privada de estudiantes.
+## Preparación
 
+Fuentes públicas → descarga y SHA-256 → extracción → limpieza → fragmentos con página o sección → embeddings → colección poli_pregrados_v3.
 
-Actualización de alcance: el público objetivo son todos los pregrados y modalidades del Politécnico Grancolombiano. La cobertura documental específica depende del programa. El corpus distingue programa, modalidad y plantilla; ETIC no es universal. Las evidencias anteriores de semanas 6–9 corresponden al piloto histórico restringido. La nueva ejecución se registra en evidencias/alcance_pregrados. Para consultar un programa puede usarse --programa y --modalidad. La cobertura específica presencial requiere fuentes propias; el chatbot se abstiene ante requisitos no documentados.
+## Consulta
+
+1. Validar longitud, programa y modalidad.
+2. Rechazar con 429 si existe una generación en curso.
+3. Filtrar metadatos y recuperar hasta cuatro fragmentos.
+4. Aplicar aclaración o abstención cuando corresponde.
+5. Para conclusiones ETIC específicas, devolver la sección literal identificada como extractiva.
+6. En las demás consultas, generar JSON con Qwen3 y validar referencias y estructura.
+7. Devolver texto, fuentes, fragmentos y estado al navegador.
+
+## Contrato
+
+GET /api/v1/catalog devuelve programas, modalidades y cobertura. GET /api/v1/health comprueba Ollama, modelos e índice. POST /api/v1/chat recibe question, program y modality, y devuelve answer, sources, insufficient, seconds y model. OpenAPI está disponible en /openapi.json y /docs.
+
+## Límites
+
+El servicio se enlaza a loopback. No incorpora autenticación ni aislamiento entre usuarios para exposición pública. Una consulta simultánea es el límite del prototipo; el historial vive en memoria de la página y cada pregunta se resuelve independientemente. No se guardan consultas web en archivos de aplicación; el evaluador sí registra las preguntas del piloto.

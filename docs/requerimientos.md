@@ -1,29 +1,16 @@
-# Requerimientos y criterios de aceptación
+# Requisitos y trazabilidad del MVP
 
-El anteproyecto propone 14 requerimientos funcionales y 8 no funcionales. Esta entrega implementa el núcleo técnico hasta semana 9.
+| ID | Criterio de aceptación | Componente | Evidencia |
+|---|---|---|---|
+| RF01 | Consulta institucional devuelve respuesta y procedencia | rag.ask y API chat | respuestas_http.json |
+| RF02 | Programa y modalidad no transfieren reglas entre contextos | retrieve y selectores | test_scope.py e integracion_http.json |
+| RF03 | Fuentes muestran título, sección, página aplicable, URL y extracto | Source y componente sources | Interfaz y contrato OpenAPI |
+| RF04 | Falta de evidencia produce aclaración o abstención | Guardas y validación | Casos negativos P09–P12 y P15–P17 |
+| RF05 | Chat muestra carga, historial temporal y limpieza | React | navegador.md y capturas |
+| RF06 | Catálogo y preparación pueden consultarse | API catalog y health | integracion_http.json |
+| RNF01 | Consulta de 1–2000 caracteres; contexto válido | Pydantic | test_api.py |
+| RNF02 | Errores sin rutas o secretos y bloqueo liberado | API | test_api.py |
+| RNF03 | Código separado de documentos y modelos | .gitignore y comandos | Inventario y README |
+| RNF04 | Un solo origen local sin exponer Ollama | Despliegue | API y exportación estática |
 
-| Requerimiento | Criterio verificable | Estado previsto de esta entrega |
-|---|---|---|
-| RF04 y RF05 Procesar y recuperar | Consulta en español devuelve hasta cuatro fragmentos con ID y metadatos | Núcleo por terminal |
-| RF06 Generar | Qwen3 4B recibe solo contexto recuperado e instrucciones especializadas | Núcleo por terminal |
-| RF08 Fuentes | Toda fuente devuelta coincide con un fragmento recuperado | Validación estructural |
-| RF09 Ausencia de evidencia | Mensaje explícito cuando no hay evidencia o las referencias son inválidas | Control y prueba piloto |
-| RF12 Evidencia técnica | Reportes JSON reproducibles con latencia y configuración | Implementado para piloto |
-| RF13 Actualizar corpus | Descarga, preparación y reconstrucción explícita del índice | Administración por comandos |
-| RF14 Evaluación | Ejecutar piloto con preguntas positivas, negativas y adversarial | Piloto ampliado de 18 casos |
-| RF01-RF03 RF07 RF10 RF11 | Acceso web, conversación, historial y nuevas preguntas | Semanas 10-12 |
-| RNF02 Trazabilidad | Documento, URL, sección/página, versión | Metadatos por fragmento |
-| RNF04 Seguridad | Sin claves ni información de estudiantes en corpus público | Revisión de archivos publicados |
-| RNF05 Mantenibilidad | Funciones separadas de extracción, embeddings, recuperación y generación | Código modular inicial |
-| RNF01 Rendimiento | Registrar latencia observada antes de fijar un SLA | Medición piloto |
-| RNF03 RNF07 | Disponibilidad y usabilidad web | Pendientes de interfaz |
-| RNF06 | Incorporar nuevas fuentes con inventario y reindexación | Proceso manual |
-| RNF08 | Abstención ante falta de evidencia | Control inicial; requiere evaluación amplia |
-
-La meta final de al menos 80 % de respuestas correctas y sustentadas se evaluará en semanas 13-14 con 50-80 preguntas. La recuperación de un documento no prueba que todos los hechos de una respuesta estén sustentados. La validez de una referencia tampoco prueba por sí sola exactitud semántica.
-
-
-Actualización de alcance: el público objetivo son todos los pregrados y modalidades del Politécnico Grancolombiano. La cobertura documental específica depende del programa. El corpus distingue programa, modalidad y plantilla; ETIC no es universal. Las evidencias anteriores de semanas 6–9 corresponden al piloto histórico restringido. La nueva ejecución se registra en evidencias/alcance_pregrados. Para consultar un programa puede usarse --programa y --modalidad. La cobertura específica presencial requiere fuentes propias; el chatbot se abstiene ante requisitos no documentados.
-
-
-RF de contextualización: solicitar programa y modalidad cuando sean necesarios; filtrar recuperación por aplicabilidad; no generalizar ETIC a todos los pregrados. Evaluación final distribuida entre programas, modalidades y cohortes.
+El público objetivo incluye todos los pregrados; el corpus no demuestra cobertura específica de todos los programas. ETIC es particular. La utilidad con usuarios y el desempeño a escala no son criterios demostrados en este corte.
